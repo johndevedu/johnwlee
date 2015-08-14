@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The official site of John Lee, a UCLA grad student and web developer in Los Angeles. See my projects, resume, and GitHub.">
+    <title>John Lee</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+  color: #444;
+  text-shadow: 1px 1px white; }
+
+a {
+  color: black;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+p {
+  line-height: 1.428; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oxygen', sans-serif;
+  font-weight: normal;
+  color: black; }
+
+h1 {
+  font-size: 200%; }
+
+header {
+  background-color: white;
+  padding: 1em 0 0.5em 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 40px; }
+  header nav ul {
+    list-style-type: none;
+    padding: 0; }
+    header nav ul li {
+      display: inline-block;
+      margin: 0 0.4em; }
+  header h1 {
+    font-size: 4em;
+    margin: 0 auto; }
+  header #banner:hover {
+    text-decoration: none; }
+  header #tagline {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 1.25em;
+    display: none; }
+  header ul#contact {
+    font-family: 'Oxygen', sans-serif;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    padding: 0.4em 0; }
+    header ul#contact img {
+      width: 18px;
+      vertical-align: bottom;
+      margin-right: 0.2em; }
+    header ul#contact li {
+      display: inline-block;
+      padding: 0 1em; }
+
+section.content {
+  margin: 0 5px 25px 5px;
+  text-align: center; }
+  section.content a {
+    display: inline-block;
+    position: relative;
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px 15px;
+    height: 250px; }
+section .card-contents {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  color: white;
+  text-shadow: 0 0 6px black;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  text-align: center;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  font-family: 'Oxygen', sans-serif; }
+  section .card-contents:hover {
+    opacity: 1; }
+  section .card-contents .card-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle; }
+  section .card-contents h2 {
+    color: white;
+    font-weight: bold;
+    margin: 0.1em; }
+  section .card-contents .descriptor {
+    color: #ccc; }
+section.project-media {
+  margin: 0 40px 0 420px;
+  overflow-x: hidden; }
+section.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0; }
+  section.video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+section#resume {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 960px; }
+  section#resume h1, section#resume h2, section#resume h3, section#resume h4, section#resume h5, section#resume h6 {
+    margin: 0; }
+  section#resume h2 {
+    margin: 1.5em 0 0.75em 0; }
+  section#resume h3, section#resume h4 {
+    margin-bottom: 0.25em; }
+  section#resume .col {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left; }
+    section#resume .col.left {
+      padding-right: 3.5em;
+      width: 63%; }
+    section#resume .col.right {
+      padding-right: 1em;
+      width: 37%; }
+  section#resume .item {
+    margin-bottom: 2em;
+    border-left: 1px solid #aaa;
+    padding-left: 1em; }
+  section#resume .position, section#resume .school {
+    font-weight: bold; }
+  section#resume .date {
+    font-weight: normal;
+    float: right;
+    color: #aaa; }
+  section#resume .print {
+    float: right;
+    color: black;
+    cursor: pointer;
+    font-weight: bold; }
+    section#resume .print img {
+      padding-left: 1px;
+      vertical-align: bottom; }
+  section#resume .references {
+    clear: both;
+    padding: 0.5em 0;
+    color: black; }
+  section#resume .footer {
+    clear: both;
+    padding: 1.5em 0;
+    font-size: 0.7em;
+    text-align: center; }
+
+aside.project {
+  float: left;
+  width: 360px;
+  padding: 0 0 0 40px;
+  line-height: 1.5; }
+  aside.project h1 {
+    margin: 0; }
+  aside.project p {
+    font-size: 0.9em; }
+  aside.project .descriptor, aside.project .involvement, aside.project .project-link, aside.project .github-link {
+    display: block; }
+  aside.project .project-link {
+    margin-bottom: 1.5em;
+    font-weight: bold; }
+  aside.project .github-link {
+    margin-bottom: 1.5em; }
+  aside.project .skills {
+    margin: 0.5em 0 0.75em 0; }
+    aside.project .skills .skill {
+      display: inline-block;
+      background-color: black;
+      color: white;
+      text-shadow: none;
+      padding: 0 0.4em;
+      margin: 0.1em 0;
+      font-size: 0.9em; }
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  margin: 0.5em 0;
+  line-height: 1.5;
+  clear: both; }
+
+img.mug {
+  border-radius: 50%;
+  vertical-align: bottom;
+  margin-right: 0.22em; }
+
+@media screen and (max-width: 1024px) {
+  aside.project {
+    padding-left: 20px; }
+
+  section.project-media {
+    margin-right: 20px;
+    margin-left: 400px; } }
+@media screen and (max-width: 860px) {
+  aside.project {
+    float: none;
+    width: inherit;
+    padding-right: 20px; }
+
+  section.project-media {
+    margin: 20px; } }
+@media screen and (max-width: 640px) {
+  header {
+    padding: 0.5em 0 0.1em 0;
+    margin-bottom: 20px; }
+    header h1 {
+      font-size: 2em; }
+
+  img.mug {
+    width: 40px; }
+
+  section#resume .col {
+    float: none; }
+    section#resume .col.left, section#resume .col.right {
+      width: 100%;
+      padding: 0; }
+
+  section.content a, section.content img {
+    height: 175px; } }
+@media screen and (max-width: 500px) {
+  section.content a, section.content img {
+    height: 135px; } }
+@media screen and (max-width: 400px) {
+  section.content a, section.content img {
+    height: 100px; } }
+@media print {
+  body {
+    background-color: white;
+    font-size: 71%; }
+
+  header {
+    box-shadow: none;
+    margin-bottom: 0;
+    padding-bottom: 0; }
+    header ul#contact {
+      display: block; }
+    header #tagline {
+      display: block; }
+
+  nav {
+    display: none; }
+
+  footer {
+    display: none; }
+
+  img.mug {
+    display: none; }
+
+  section#resume {
+    padding: 0; }
+    section#resume h1 {
+      display: none; }
+    section#resume h2 {
+      font-size: 200%; }
+    section#resume .item {
+      border-left: 1px solid #bbb; }
+    section#resume .references {
+      display: none; }
+    section#resume .print {
+      display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a id="banner" href="/"><h1>
+            <!--<img class="mug" src="" />-->John Lee</h1></a>
+        <div id="tagline">Full-stack web developer and designer</div>
+        <nav>
+            <ul>
+                <li><a href="/">Projects</a></li>
+                <li><a href="/resume/">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <a href="/mh2">
+            <div style="width:400px;"> <!--height:250px; already declared as part of a tag--> 
+                <h1>MH2: </h1>
+                <h1>Mental Health for <br />Mobile Health</h1>
+                <div class="card-contents">
+                    <div class="card-text">
+                        <h2>MH2</h2>
+                        <span class="descriptor">Bridging the gap between providers, parents, and teachers in delivering medication to children.</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+</body>
+</html>
+
+
+    
